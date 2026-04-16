@@ -80,3 +80,88 @@ function Counter() {
 }`,
   },
 };
+
+export const MORE_EXAMPLES = {
+  hooks: {
+    title: 'Hooks',
+    description:
+      'Hooks let you use state and other React features without writing a class. The most commonly used hooks are useState and useEffect.',
+    code: `
+import { useState } from "react";
+
+function LikeButton() {
+  const [likes, setLikes] = useState(0);
+
+  return (
+    <button onClick={() => setLikes(likes + 1)}>
+      Likes: {likes}
+    </button>
+  );
+}`,
+  },
+  events: {
+    title: 'Event Handling',
+    description:
+      'React events are named using camelCase, and you pass a function as the event handler.',
+    code: `
+function ClickExample() {
+  function handleClick() {
+    alert("Button clicked!");
+  }
+
+  return <button onClick={handleClick}>Click Me</button>;
+}`,
+  },
+  lists: {
+    title: 'Lists & Keys',
+    description:
+      'You can render lists of elements using map(). Each item should have a unique key.',
+    code: `
+function ItemList() {
+  const items = ["Apple", "Banana", "Cherry"];
+
+  return (
+    <ul>
+      {items.map((item, index) => (
+        <li key={index}>{item}</li>
+      ))}
+    </ul>
+  );
+}`,
+  },
+  forms: {
+    title: 'Forms',
+    description:
+      'React forms handle user input using controlled components, where form data is handled by state.',
+    code: `
+import { useState } from "react";
+
+function NameForm() {
+  const [name, setName] = useState("");
+
+  return (
+    <form>
+      <input
+        value={name}
+        onChange={(e) => setName(e.target.value)}
+        placeholder="Enter your name"
+      />
+      <p>Hello, {name}</p>
+    </form>
+  );
+}`,
+  },
+  conditionalRendering: {
+    title: 'Conditional Rendering',
+    description:
+      'React allows you to render different components or elements based on conditions.',
+    code: `
+function Greeting({ isLoggedIn }) {
+  return (
+    <div>
+      {isLoggedIn ? <h1>Welcome back!</h1> : <h1>Please sign in.</h1>}
+    </div>
+  );
+}`,
+  },
+};
